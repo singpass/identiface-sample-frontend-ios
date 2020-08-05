@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,30 @@
 		7153764D24DA96A70046F8A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7153764B24DA96A70046F8A1 /* Main.storyboard */; };
 		7153764F24DA96A80046F8A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7153764E24DA96A80046F8A1 /* Assets.xcassets */; };
 		7153765224DA96A80046F8A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7153765024DA96A80046F8A1 /* LaunchScreen.storyboard */; };
+		7153765C24DAA5630046F8A1 /* NDIWrapper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7153765A24DAA5630046F8A1 /* NDIWrapper.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7153765F24DAA5CC0046F8A1 /* NDIWrapper.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7153765E24DAA5CC0046F8A1 /* NDIWrapper.xcframework */; };
+		71550BFA24DAA770004278D6 /* Pods_ndi_identiface_sample_public_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */; };
+		71550BFB24DAA770004278D6 /* Pods_ndi_identiface_sample_public_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7153765D24DAA5630046F8A1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7153765C24DAA5630046F8A1 /* NDIWrapper.xcframework in Embed Frameworks */,
+				71550BFB24DAA770004278D6 /* Pods_ndi_identiface_sample_public_ios.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		512A7825DEA6560BADA20BC9 /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndi-identiface-sample-public-ios.release.xcconfig"; path = "Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios.release.xcconfig"; sourceTree = "<group>"; };
+		65C9E97D15CF32ADF4D2FD77 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndi-identiface-sample-public-ios.debug.xcconfig"; path = "Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		7153764224DA96A70046F8A1 /* ndi-identiface-sample-public-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ndi-identiface-sample-public-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7153764524DA96A70046F8A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7153764724DA96A70046F8A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +45,9 @@
 		7153764E24DA96A80046F8A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7153765124DA96A80046F8A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7153765324DA96A80046F8A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7153765A24DAA5630046F8A1 /* NDIWrapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NDIWrapper.xcframework; path = "../ndi-fbs-ios-sdk/FrameworkAndDependencies/NDIWrapper.xcframework"; sourceTree = "<group>"; };
+		7153765E24DAA5CC0046F8A1 /* NDIWrapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NDIWrapper.xcframework; path = "../ndi-fbs-ios-sdk/FrameworkAndDependencies/NDIWrapper.xcframework"; sourceTree = "<group>"; };
+		CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ndi_identiface_sample_public_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +55,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7153765F24DAA5CC0046F8A1 /* NDIWrapper.xcframework in Frameworks */,
+				71550BFA24DAA770004278D6 /* Pods_ndi_identiface_sample_public_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550BF131CAFDE0F8C954D9C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65C9E97D15CF32ADF4D2FD77 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */,
+				512A7825DEA6560BADA20BC9 /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7153763924DA96A70046F8A1 = {
 			isa = PBXGroup;
 			children = (
+				7153765E24DAA5CC0046F8A1 /* NDIWrapper.xcframework */,
 				7153764424DA96A70046F8A1 /* ndi-identiface-sample-public-ios */,
 				7153764324DA96A70046F8A1 /* Products */,
+				7153765924DAA5630046F8A1 /* Frameworks */,
+				550BF131CAFDE0F8C954D9C6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +105,15 @@
 			path = "ndi-identiface-sample-public-ios";
 			sourceTree = "<group>";
 		};
+		7153765924DAA5630046F8A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7153765A24DAA5630046F8A1 /* NDIWrapper.xcframework */,
+				CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +121,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7153765624DA96A80046F8A1 /* Build configuration list for PBXNativeTarget "ndi-identiface-sample-public-ios" */;
 			buildPhases = (
+				1832A29603EBFA7FC453F779 /* [CP] Check Pods Manifest.lock */,
+				EFFF09CB5B0BA5D2D8D4AF74 /* [CP] Prepare Artifacts */,
 				7153763E24DA96A70046F8A1 /* Sources */,
 				7153763F24DA96A70046F8A1 /* Frameworks */,
 				7153764024DA96A70046F8A1 /* Resources */,
+				7153765D24DAA5630046F8A1 /* Embed Frameworks */,
+				C1DACB49A7A01A8FF8F07995 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +183,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1832A29603EBFA7FC453F779 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ndi-identiface-sample-public-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1DACB49A7A01A8FF8F07995 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFFF09CB5B0BA5D2D8D4AF74 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7153763E24DA96A70046F8A1 /* Sources */ = {
@@ -282,6 +392,7 @@
 		};
 		7153765724DA96A80046F8A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C9E97D15CF32ADF4D2FD77 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +410,7 @@
 		};
 		7153765824DA96A80046F8A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 512A7825DEA6560BADA20BC9 /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

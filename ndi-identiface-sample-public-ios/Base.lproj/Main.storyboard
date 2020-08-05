@@ -49,11 +49,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="C9P-B4-BKP">
+                                <rect key="frame" x="197" y="570" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Wfo-o7-s8W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1eS-mM-g1R"/>
                             <constraint firstItem="3SQ-XG-El8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="73.5" id="Avo-tO-shn"/>
+                            <constraint firstItem="C9P-B4-BKP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="132" id="ESI-6F-JF5"/>
                             <constraint firstItem="Wfo-o7-s8W" firstAttribute="top" secondItem="zXq-P9-sYu" secondAttribute="bottom" constant="100" id="Fu6-UU-xoP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3SQ-XG-El8" secondAttribute="trailing" constant="43" id="HSX-sa-qMG"/>
                             <constraint firstItem="I23-r1-cuM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PDc-qC-Oeh"/>
@@ -62,6 +66,7 @@
                             <constraint firstItem="1oO-ra-Dtv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vh8-FC-V5w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wfo-o7-s8W" secondAttribute="trailing" constant="123" id="Xem-wG-cRo"/>
                             <constraint firstItem="zXq-P9-sYu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="dih-ZB-iQU"/>
+                            <constraint firstItem="C9P-B4-BKP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="isg-bG-m7R"/>
                             <constraint firstItem="3SQ-XG-El8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kCy-rS-CVy"/>
                             <constraint firstItem="3SQ-XG-El8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="lFF-65-wVa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I23-r1-cuM" secondAttribute="trailing" constant="43" id="lfo-bq-lRv"/>
@@ -74,8 +79,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="Wfo-o7-s8W" id="3ul-B7-nSt"/>
                         <outlet property="appLabel" destination="1oO-ra-Dtv" id="y5c-ze-tRR"/>
                         <outlet property="homeLabel" destination="3SQ-XG-El8" id="p7Q-KM-qBd"/>
+                        <outlet property="indicatorView" destination="C9P-B4-BKP" id="llR-l3-jFP"/>
                         <outlet property="nricField" destination="zXq-P9-sYu" id="6Au-JS-VYh"/>
                     </connections>
                 </viewController>
