@@ -9,6 +9,7 @@
 import UIKit
 import NDIWrapper
 import SwiftyJSON
+import SafariServices
 
 class ViewController: UIViewController {
     
@@ -17,7 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet var homeLabel: UILabel!
     @IBOutlet var nricField: UITextField!
     @IBOutlet var actionButton: UIButton!
+    @IBOutlet var alternativeLoginButton: UIButton!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet var validationNRICToggle: UISwitch!
+    
     
     // UI styles
     let isDangerColor = UIColor(red:255/255.0, green:56/255.0, blue:96/255.0, alpha:1)
@@ -37,12 +41,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        appLabel.text = "Welcome to Identiface"
+        appLabel.text = "Login to Identiface"
         indicatorView.isHidden = true
-        nricField.text = "G2979480X"
+        nricField.text = "G2957839M"
+        print(validationNRICToggle.isOn)
+        actionButton.layer.cornerRadius = 5
     }
     
-    func getSessionToken(nric: String) -> (status: Int, token: String, type: String) {
+    func getSessionToken(nric: String, sessionCompletionHandler: @escaping (JSON?) -> Void) {
         let getSessionTokenURL = URL(string: baseURL + getSessionTokenAPI)!
         
         let params: [String: Any] = [
@@ -55,7 +61,7 @@ class ViewController: UIViewController {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         guard let reqBody = try? JSONSerialization.data(withJSONObject: params, options: []) else {
-            return (500, "Error", "error")
+            return
         }
         request.httpBody = reqBody
         request.timeoutInterval = 10
@@ -77,7 +83,7 @@ class ViewController: UIViewController {
             if let data = data {
                 do {
                     let json = try JSON(data: data)
-                    print(json)
+                    sessionCompletionHandler(json)
                 } catch {
                     print(error)
                 }
@@ -86,11 +92,15 @@ class ViewController: UIViewController {
         
         task.resume()
         
-        return(500, "App Error", "error")
     }
     
     func validateResult() {
         
+    }
+    
+    @IBAction func toggleNRIC(sender: UISwitch) {
+        print(sender.isOn)
+        nricField.text = sender.isOn ? "G2834561K" : "G2957839M"
     }
     
     @IBAction func loadFace(sender: AnyObject) {
@@ -100,19 +110,31 @@ class ViewController: UIViewController {
             homeLabel.textColor = isDangerColor
         } else {
             homeLabel.text = "Verifying your NRIC..."
-            homeLabel.textColor = UIColor(red: 50/255.0, green: 115/255.0, blue: 220/255.0, alpha: 1)
             
             // hide actionButton when no input errors
             actionButton.isHidden = true
+            alternativeLoginButton.isHidden = true
             
             indicatorView.startAnimating()
             indicatorView.isHidden = false
             
-            getSessionToken(nric: nricField.text!)
-            
-            homeLabel.text = "SHIT"
-            
-//            ndiWrapper = NDIWrapper(streamingURL: streamingURL, sessionToken: sessionToken)
+            getSessionToken(nric: nricField.text!, sessionCompletionHandler: {response in
+                if let response = response {
+                    self.sessionToken = response["token"].string!
+                    self.ndiWrapper = NDIWrapper(streamingURL: self.streamingURL, sessionToken: self.sessionToken)
+                    
+                    self.ndiWrapper.launchBioAuth(streamingURL: self.streamingURL, sessionToken: self.sessionToken, callback: { (status) in
+                        print(status)
+                    })
+                }
+            })
+        }
+    }
+    
+    @IBAction func privacyStmtPressed(_ sender: UIButton) {
+        if let url = URL(string: "https://go.gov.sg/singpass-identiface-data-privacy") {
+            let safariVC = SFSafariViewController(url: url)
+            present(safariVC, animated:true, completion: nil)
         }
     }
 

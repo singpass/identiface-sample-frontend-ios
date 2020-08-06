@@ -11,12 +11,13 @@
 		7153764824DA96A70046F8A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153764724DA96A70046F8A1 /* SceneDelegate.swift */; };
 		7153764A24DA96A70046F8A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153764924DA96A70046F8A1 /* ViewController.swift */; };
 		7153764D24DA96A70046F8A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7153764B24DA96A70046F8A1 /* Main.storyboard */; };
-		7153764F24DA96A80046F8A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7153764E24DA96A80046F8A1 /* Assets.xcassets */; };
 		7153765224DA96A80046F8A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7153765024DA96A80046F8A1 /* LaunchScreen.storyboard */; };
-		7153765C24DAA5630046F8A1 /* NDIWrapper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7153765A24DAA5630046F8A1 /* NDIWrapper.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7153765C24DAA5630046F8A1 /* NDIWrapper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7153765A24DAA5630046F8A1 /* NDIWrapper.xcframework */; };
 		7153765F24DAA5CC0046F8A1 /* NDIWrapper.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7153765E24DAA5CC0046F8A1 /* NDIWrapper.xcframework */; };
 		71550BFA24DAA770004278D6 /* Pods_ndi_identiface_sample_public_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */; };
-		71550BFB24DAA770004278D6 /* Pods_ndi_identiface_sample_public_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		71550BFB24DAA770004278D6 /* Pods_ndi_identiface_sample_public_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7156BB4524DC06F400564ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7153764E24DA96A80046F8A1 /* Assets.xcassets */; };
+		7156BB4724DC071400564ED1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7156BB4624DC071400564ED1 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,7 @@
 		7153765324DA96A80046F8A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7153765A24DAA5630046F8A1 /* NDIWrapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NDIWrapper.xcframework; path = "../ndi-fbs-ios-sdk/FrameworkAndDependencies/NDIWrapper.xcframework"; sourceTree = "<group>"; };
 		7153765E24DAA5CC0046F8A1 /* NDIWrapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NDIWrapper.xcframework; path = "../ndi-fbs-ios-sdk/FrameworkAndDependencies/NDIWrapper.xcframework"; sourceTree = "<group>"; };
+		7156BB4624DC071400564ED1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = "../../HTML_SDK/ndi-spf-html-sdk/ui/assets/img/logo.png"; sourceTree = "<group>"; };
 		CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ndi_identiface_sample_public_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 		7153763924DA96A70046F8A1 = {
 			isa = PBXGroup;
 			children = (
+				7156BB4624DC071400564ED1 /* logo.png */,
 				7153765E24DAA5CC0046F8A1 /* NDIWrapper.xcframework */,
 				7153764424DA96A70046F8A1 /* ndi-identiface-sample-public-ios */,
 				7153764324DA96A70046F8A1 /* Products */,
@@ -176,8 +179,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7156BB4724DC071400564ED1 /* logo.png in Resources */,
+				7156BB4524DC06F400564ED1 /* Assets.xcassets in Resources */,
 				7153765224DA96A80046F8A1 /* LaunchScreen.storyboard in Resources */,
-				7153764F24DA96A80046F8A1 /* Assets.xcassets in Resources */,
 				7153764D24DA96A70046F8A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +401,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "ndi-identiface-sample-public-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -415,6 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "ndi-identiface-sample-public-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

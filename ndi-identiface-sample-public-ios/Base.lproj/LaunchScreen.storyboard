@@ -11,16 +11,38 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="t7E-b7-Ywl">
+                                <rect key="frame" x="144" y="306.5" width="126" height="283"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Identiface..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ow-w8-Ccc">
+                                <rect key="frame" x="148" y="747.5" width="118.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="t7E-b7-Ywl" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="B92-kT-g5N"/>
+                            <constraint firstItem="6ow-w8-Ccc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Jwj-rp-gww"/>
+                            <constraint firstItem="6ow-w8-Ccc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="306.5" id="KIN-c6-sVX"/>
+                            <constraint firstItem="t7E-b7-Ywl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="262.5" id="WAU-oR-X4y"/>
+                            <constraint firstItem="t7E-b7-Ywl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="144" id="c9U-Ks-8x0"/>
+                            <constraint firstItem="t7E-b7-Ywl" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eYt-Sj-Tpr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="251" height="188"/>
+    </resources>
 </document>
