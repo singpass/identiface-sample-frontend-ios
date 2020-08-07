@@ -41,18 +41,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // app header label
         appLabel.text = "Login to Identiface"
+        
+        // loading indicator initialisation
         indicatorView.isHidden = true
         
-//        progressBar.isHidden = true
+        // progressBar initialisation
+        progressBar.isHidden = true
         progressBar.layer.cornerRadius = 4
         progressBar.clipsToBounds = true
         progressBar.layer.sublayers![1].cornerRadius = 4
         progressBar.subviews[1].clipsToBounds = true
         
+        // set an NRIC for quick testing
         nricField.text = "G2957839M"
         actionButton.layer.cornerRadius = 5
+    }
+    
+    func alertCreator(title: String, message: String, actions: [String]) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        for action in actions {
+            alert.addAction(UIAlertAction(title: action, style: .default, handler: nil))
+        }
+        
+        self.present(alert, animated: true)
     }
     
     func getSessionToken(nric: String, sessionCompletionHandler: @escaping (JSON?) -> Void) {
@@ -157,6 +171,16 @@ class ViewController: UIViewController {
             }
             
             switch status {
+            // Failure handler, will post alert messages based on feedback
+            case .failure(reason: _, feedbackCode: let feedbackCode):
+                DispatchQueue.main.async {
+                    var error = ErrorMessages.init(feedbackCode: feedbackCode)
+                    
+                    self.present(error.errorMessageCreator(), animated: true)
+                }
+                print(status)
+                break
+            // Successful verification handler, next step is to call the validateResult API
             case .success(token: let token):
                 if (token != self.sessionToken) {
                     let alert = UIAlertController(title: "Error", message: "Session Error. Please try again", preferredStyle: .alert)
@@ -183,6 +207,16 @@ class ViewController: UIViewController {
                             if let response = response {
                                 print("====")
                                 print(response)
+                                
+                                if (response["is_passed"].string == "true") {
+                                    DispatchQueue.main.async {
+                                        self.alertCreator(title: "Success", message: "Welcomeaaa, " + self.nricField.text! + "!", actions: ["Ok"])
+                                    }
+                                } else {
+                                    DispatchQueue.main.async {
+                                        self.alertCreator(title: "Unsuccessful", message: "Face verification was unsucessful", actions: ["Try again", "Cancel"])
+                                    }
+                                }
                             }
                         }
                     )
@@ -191,6 +225,7 @@ class ViewController: UIViewController {
             case .error:
                 print("ERROR!")
                 print(type(of: status))
+                self.alertCreator(title: "Error", message: "Some error", actions: ["Ok"])
                 break
             case .processing(progress: let progress, message: let progressMessage):
                 DispatchQueue.main.async {
@@ -209,7 +244,7 @@ class ViewController: UIViewController {
     
     @IBAction func toggleNRIC(sender: UISwitch) {
         print(sender.isOn)
-        nricField.text = sender.isOn ? "G2834561K" : "G2957839M"
+        nricField.text = sender.isOn ? "G2957839M" : "G2834561K"
     }
     
     @IBAction func loadFace(sender: AnyObject) {
@@ -245,7 +280,8 @@ class ViewController: UIViewController {
                                 // initialise SDK
                                 self.ndiWrapper = NDIWrapper(streamingURL: self.streamingURL, sessionToken: self.sessionToken)
 
-                                
+                                self.nricField.isEnabled = false
+                                self.validationNRICToggle.isEnabled = false
                                 self.actionButton.isHidden = false
                                 self.indicatorView.isHidden = true
                                 
