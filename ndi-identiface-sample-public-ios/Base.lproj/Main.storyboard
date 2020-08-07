@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IdV-ye-etC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,16 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SingPass Face is loading..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oO-ra-Dtv">
-                                <rect key="frame" x="107" y="93" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="1uF-T4-Rk4"/>
-                                    <constraint firstAttribute="height" constant="200" id="jhS-li-Uut"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NRIC/FIN Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zXq-P9-sYu">
                                 <rect key="frame" x="43" y="431" width="328" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -32,7 +22,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfo-o7-s8W">
                                 <rect key="frame" x="43" y="565" width="328" height="40"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="dSK-jP-QlV"/>
                                 </constraints>
@@ -87,9 +77,27 @@
                                     <segue destination="AT4-je-Zzq" kind="show" id="6wP-m6-slq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SingPass Face is loading..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oO-ra-Dtv">
+                                <rect key="frame" x="107" y="143" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="1uF-T4-Rk4"/>
+                                    <constraint firstAttribute="height" constant="200" id="jhS-li-Uut"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="OOI-KX-Vcm">
+                                <rect key="frame" x="100" y="580" width="214" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="n9U-jp-Ym5"/>
+                                </constraints>
+                                <color key="progressTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="OOI-KX-Vcm" secondAttribute="trailing" constant="80" id="00G-YJ-2da"/>
                             <constraint firstItem="Wfo-o7-s8W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1eS-mM-g1R"/>
                             <constraint firstItem="nag-dO-f68" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="181" id="33r-HU-M7W"/>
                             <constraint firstItem="Wfo-o7-s8W" firstAttribute="top" secondItem="3SQ-XG-El8" secondAttribute="bottom" constant="8" id="5Sq-Ci-l2y"/>
@@ -99,6 +107,7 @@
                             <constraint firstItem="3SQ-XG-El8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="GBc-2x-lRm"/>
                             <constraint firstItem="I23-r1-cuM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PDc-qC-Oeh"/>
                             <constraint firstItem="I23-r1-cuM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-29.5" id="QQ2-nZ-TRO"/>
+                            <constraint firstItem="OOI-KX-Vcm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="RRd-Cg-xbk"/>
                             <constraint firstItem="nag-dO-f68" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Reh-7y-Vyh"/>
                             <constraint firstItem="I23-r1-cuM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="TV4-sS-JM3"/>
                             <constraint firstItem="1oO-ra-Dtv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vh8-FC-V5w"/>
@@ -116,9 +125,10 @@
                             <constraint firstItem="zXq-P9-sYu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oYQ-8F-erj"/>
                             <constraint firstItem="DDq-Bw-46e" firstAttribute="top" secondItem="nag-dO-f68" secondAttribute="bottom" constant="40" id="qEm-PC-Rvb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IXS-Jk-7uX" secondAttribute="trailing" constant="43" id="qx0-fu-Ajk"/>
+                            <constraint firstItem="OOI-KX-Vcm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="137" id="s8u-38-gbP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zXq-P9-sYu" secondAttribute="trailing" constant="43" id="ubU-kE-qEQ"/>
                             <constraint firstItem="zXq-P9-sYu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v3i-Jh-4Ma"/>
-                            <constraint firstItem="1oO-ra-Dtv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-255" id="vNY-y6-pXE"/>
+                            <constraint firstItem="1oO-ra-Dtv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-205" id="vNY-y6-pXE"/>
                             <constraint firstItem="z3A-Bq-RuG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="yaG-93-seB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -131,12 +141,47 @@
                         <outlet property="homeLabel" destination="3SQ-XG-El8" id="p7Q-KM-qBd"/>
                         <outlet property="indicatorView" destination="C9P-B4-BKP" id="llR-l3-jFP"/>
                         <outlet property="nricField" destination="zXq-P9-sYu" id="6Au-JS-VYh"/>
+                        <outlet property="progressBar" destination="OOI-KX-Vcm" id="JjW-wJ-UZo"/>
                         <outlet property="validationNRICToggle" destination="IXS-Jk-7uX" id="8uK-z3-8m8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1163.768115942029" y="113.83928571428571"/>
+        </scene>
+        <!--showLoginScreen-->
+        <scene sceneID="gMZ-KW-tlh">
+            <objects>
+                <viewController title="showLoginScreen" id="QDj-o4-7UD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vpy-gx-h2l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Qi-Ar-sLd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="hp8-br-Af5"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bt6-Fc-JNx">
+                                <rect key="frame" x="166.5" y="437.5" width="81" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bt6-Fc-JNx" firstAttribute="centerX" secondItem="vpy-gx-h2l" secondAttribute="centerX" id="ZYE-kK-GSq"/>
+                            <constraint firstItem="bt6-Fc-JNx" firstAttribute="centerY" secondItem="vpy-gx-h2l" secondAttribute="centerY" id="qqI-hX-al0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yNC-yt-alK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fso-fj-Qvp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2170" y="-208"/>
         </scene>
         <!--Login with Password-->
         <scene sceneID="Ezd-d2-b9L">
