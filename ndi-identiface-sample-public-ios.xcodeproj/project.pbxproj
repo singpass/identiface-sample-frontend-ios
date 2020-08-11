@@ -18,6 +18,7 @@
 		71550BFB24DAA770004278D6 /* Pods_ndi_identiface_sample_public_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7156BB4524DC06F400564ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7153764E24DA96A80046F8A1 /* Assets.xcassets */; };
 		7156BB4724DC071400564ED1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7156BB4624DC071400564ED1 /* logo.png */; };
+		71B3166624E26E420088D448 /* LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B3166524E26E420088D448 /* LoggedIn.swift */; };
 		71BF14C724DD4B6400147474 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BF14C624DD4B6400147474 /* ErrorMessages.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		7153765A24DAA5630046F8A1 /* NDIWrapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NDIWrapper.xcframework; path = "../ndi-fbs-ios-sdk/FrameworkAndDependencies/NDIWrapper.xcframework"; sourceTree = "<group>"; };
 		7153765E24DAA5CC0046F8A1 /* NDIWrapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NDIWrapper.xcframework; path = "../ndi-fbs-ios-sdk/FrameworkAndDependencies/NDIWrapper.xcframework"; sourceTree = "<group>"; };
 		7156BB4624DC071400564ED1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = "../../HTML_SDK/ndi-spf-html-sdk/ui/assets/img/logo.png"; sourceTree = "<group>"; };
+		71B3166524E26E420088D448 /* LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedIn.swift; sourceTree = "<group>"; };
 		71BF14C624DD4B6400147474 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
 		CDE84D4E40F528073390A8C0 /* Pods_ndi_identiface_sample_public_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ndi_identiface_sample_public_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				7153764724DA96A70046F8A1 /* SceneDelegate.swift */,
 				7153764924DA96A70046F8A1 /* ViewController.swift */,
 				7153764B24DA96A70046F8A1 /* Main.storyboard */,
+				71B3166524E26E420088D448 /* LoggedIn.swift */,
 				7153764E24DA96A80046F8A1 /* Assets.xcassets */,
 				7153765024DA96A80046F8A1 /* LaunchScreen.storyboard */,
 				7153765324DA96A80046F8A1 /* Info.plist */,
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B3166624E26E420088D448 /* LoggedIn.swift in Sources */,
 				71BF14C724DD4B6400147474 /* ErrorMessages.swift in Sources */,
 				7153764A24DA96A70046F8A1 /* ViewController.swift in Sources */,
 				7153764624DA96A70046F8A1 /* AppDelegate.swift in Sources */,

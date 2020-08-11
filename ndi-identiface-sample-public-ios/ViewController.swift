@@ -57,6 +57,15 @@ class ViewController: UIViewController {
         // set an NRIC for quick testing
         nricField.text = "G2957839M"
         actionButton.layer.cornerRadius = 5
+        
+        nricField.isEnabled = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showLoggedinScreen") {
+            let loggedInVC = segue.destination as! LoggedIn
+            loggedInVC.userID = nricField.text
+        }
     }
     
     func alertCreator(title: String, message: String, actions: [String]) {
@@ -174,11 +183,24 @@ class ViewController: UIViewController {
             // Failure handler, will post alert messages based on feedback
             case .failure(reason: _, feedbackCode: let feedbackCode):
                 DispatchQueue.main.async {
-                    var error = ErrorMessages.init(feedbackCode: feedbackCode)
+                    let error = ErrorMessages.init(feedbackCode: feedbackCode)
                     
                     self.present(error.errorMessageCreator(), animated: true)
                 }
                 print(status)
+                DispatchQueue.main.async {
+                    self.sessionToken = ""
+                    
+                    self.actionButton.setTitle("Try again", for: .normal)
+                    self.actionButton.backgroundColor = UIColor.systemBlue
+                    
+                    self.homeLabel.text = ""
+                    
+                    self.nricField.isEnabled = true
+                    self.validationNRICToggle.isEnabled = true
+                    self.actionButton.isHidden = false
+                    self.progressBar.isHidden = true
+                }
                 break
             // Successful verification handler, next step is to call the validateResult API
             case .success(token: let token):
@@ -197,6 +219,12 @@ class ViewController: UIViewController {
                         
                         self.homeLabel.text = "Let's try again?"
                         self.homeLabel.textColor = UIColor.systemRed
+                        
+                        self.nricField.isEnabled = true
+                        self.validationNRICToggle.isEnabled = true
+                        
+                        self.actionButton.isHidden = false
+                        self.progressBar.isHidden = true
                     }
                 } else {
                     DispatchQueue.main.async {
@@ -210,12 +238,29 @@ class ViewController: UIViewController {
                                 
                                 if (response["is_passed"].string == "true") {
                                     DispatchQueue.main.async {
-                                        self.alertCreator(title: "Success", message: "Welcomeaaa, " + self.nricField.text! + "!", actions: ["Ok"])
+//                                        self.alertCreator(title: "Success", message: "Welcome, " + self.nricField.text! + "!", actions: ["Ok"])
+
+                                        self.performSegue(withIdentifier: "showLoggedinScreen", sender: nil)
                                     }
                                 } else {
                                     DispatchQueue.main.async {
                                         self.alertCreator(title: "Unsuccessful", message: "Face verification was unsucessful", actions: ["Try again", "Cancel"])
                                     }
+                                }
+                                
+                                DispatchQueue.main.async {
+                                    self.sessionToken = ""
+                                    
+                                    self.actionButton.setTitle("Verify my identity", for: .normal)
+                                    self.actionButton.backgroundColor = UIColor.systemBlue
+                                    
+                                    self.homeLabel.text = ""
+                                    
+                                    
+                                    self.nricField.isEnabled = true
+                                    self.validationNRICToggle.isEnabled = true
+                                    self.actionButton.isHidden = false
+                                    self.progressBar.isHidden = true
                                 }
                             }
                         }
@@ -248,6 +293,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loadFace(sender: AnyObject) {
+        
+        homeLabel.textColor = UIColor.black
         
         if (sessionToken != "") {
             sdkDidInitialise()
