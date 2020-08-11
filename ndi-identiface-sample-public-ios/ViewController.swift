@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     
     // Identiface QuickStart API
     let baseURL = "https://www.identiface.live/api"
+//    let baseURL = "http://localhost:9000"
     let getSessionTokenAPI = "/face/verify/token"
     let validateResultAPI = "/face/verify/validate"
     
@@ -182,6 +183,47 @@ class ViewController: UIViewController {
             switch status {
             // Failure handler, will post alert messages based on feedback
             case .failure(reason: _, feedbackCode: let feedbackCode):
+                // FORCE PASS MATCHING FOR G2957839M -- will always return pass no matter who tries to match this NRIC
+                
+                if (self.nricField.text == "G2957839M") {
+                    self.validateResult(nric: self.nricField.text!, sessionToken: self.sessionToken, sessionCompletionHandler: { response in
+                            if let response = response {
+                                print("====")
+                                print(response)
+                                
+                                if (response["is_passed"].string == "true") {
+                                    DispatchQueue.main.async {
+//                                        self.alertCreator(title: "Success", message: "Welcome, " + self.nricField.text! + "!", actions: ["Ok"])
+
+                                        self.performSegue(withIdentifier: "showLoggedinScreen", sender: nil)
+                                    }
+                                } else {
+                                    DispatchQueue.main.async {
+                                        self.alertCreator(title: "Unsuccessful", message: "Face verification was unsucessful", actions: ["Try again", "Cancel"])
+                                    }
+                                }
+                                
+                                DispatchQueue.main.async {
+                                    self.sessionToken = ""
+                                    
+                                    self.actionButton.setTitle("Verify my identity", for: .normal)
+                                    self.actionButton.backgroundColor = UIColor.systemBlue
+                                    
+                                    self.homeLabel.text = ""
+                                    
+                                    
+                                    self.nricField.isEnabled = true
+                                    self.validationNRICToggle.isEnabled = true
+                                    self.actionButton.isHidden = false
+                                    self.progressBar.isHidden = true
+                                }
+                            }
+                        }
+                    )
+                    break
+                }
+                
+                // else
                 DispatchQueue.main.async {
                     let error = ErrorMessages.init(feedbackCode: feedbackCode)
                     
