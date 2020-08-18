@@ -1,6 +1,8 @@
 # NDI Identiface QuickStart
 NDI Identiface Sample iOS App for Developers' Onboarding reference.
 
+![XCode Build](assets/images/ios-built-app.png)
+
 Made with Swift 5.2.4 on Xcode
 
 ----
@@ -653,8 +655,6 @@ https://www.identiface.live/api/face/verify/validate
 
 ## Final notes
 
-![XCode Build](assets/images/ios-built-app.png)
-
-Congratulations! You've successfully created a Proof-of-Concept (PoC) using the Identiface iOS QuickStart!
+Congratulations, you've successfully created a Proof-of-Concept (PoC) using the Identiface iOS QuickStart!
 
 You're now ready to integrate the SDK into your test environments using the QuickStart backend APIs.
