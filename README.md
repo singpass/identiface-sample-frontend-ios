@@ -76,9 +76,8 @@ post_install do |installer|
 end
 ```
 
-::: danger ⚠ IMPORTANT
-This code will manually enable module stability for some dependencies due to some modules not directly supported in Cocoapods. Once Cocoapods supports these modules, this workaround can be removed.
-:::
+> ⚠ IMPORTANT
+> This code will manually enable module stability for some dependencies due to some modules not directly supported in Cocoapods. Once Cocoapods supports these modules, this workaround can be removed.
 
 <br />
 
@@ -88,9 +87,8 @@ This code will manually enable module stability for some dependencies due to som
 
 Once done, save the `Podfile`. In `Terminal`, run the following commands: `pod install` or `pod install --verbose`.
 
-::: danger IMPORTANT
-Now that you've installed the dependencies, please restart Xcode, and subsequently open your project with **`.xcworkspace`** and **not `.xcodeproj`**.
-:::
+> IMPORTANT
+> Now that you've installed the dependencies, please restart Xcode, and subsequently open your project with **`.xcworkspace`** and **not `.xcodeproj`**.
 
 ## The Storyboard and View Controllers
 
@@ -104,9 +102,8 @@ This is how our storyboard looks like:
 
 ![Storyboard example](assets/images/ios-storyboard.png)
 
-::: tip TIP
-Notice the NRIC/FIN text field. We will use this in the `ViewController.swift`.
-:::
+> TIP
+> Notice the NRIC/FIN text field. We will use this in the `ViewController.swift`.
 
 ### Importing the SDK and JSON Library
 
@@ -254,7 +251,6 @@ The `loadFace()` function is triggered whenever the `actionButton` is pressed, o
 
 Copy the following to your `ViewController`:
 
-::: details <code>loadFace()</code>
 ```swift
     @IBAction func loadFace(sender: AnyObject) {
         
@@ -317,7 +313,6 @@ Copy the following to your `ViewController`:
         }
     }
 ```
-:::
 
 ## Retrieve session token
 
@@ -325,7 +320,6 @@ From `loadFace()`, you might have noticed `getSessionToken()`. Recall from our s
 
 Copy the following to `ViewController`:
 
-::: details <code>getSessionToken()</code>
 ```swift
     func getSessionToken(nric: String, sessionCompletionHandler: @escaping (JSON?) -> Void) {
         let getSessionTokenURL = URL(string: baseURL + getSessionTokenAPI)!
@@ -372,8 +366,7 @@ Copy the following to `ViewController`:
         task.resume()
         
     }
-```    
-:::
+```
 
 Below are the parameters for the request for your information:
 
@@ -412,15 +405,13 @@ https://www.identiface.live/api/face/verify/token
 
 <br>
 
-::: warning README
-Note that in the actual implementation, you will have to build the backend to perform this server-to-server call with our SingPass servers.
-:::
+> README
+> Note that in the actual implementation, you will have to build the backend to perform this server-to-server call with our SingPass servers.
 
 ## Start face verification and handle results
 
 Face verification results could be handled through a callback in `sdkDidInitialise()`. Copy the following code into your `ViewController`.
 
-::: details <code>sdkDidInitialise()</code>
 ```swift
     func sdkDidInitialise() {
             
@@ -544,13 +535,11 @@ Face verification results could be handled through a callback in `sdkDidInitiali
         
     }
 ```
-:::
 
 From the above code, if the face verification result is `.successful`, call `validateResult()`.
 
 Copy the following code into `ViewController`:
 
-::: details <code>validateResult()</code>
 ```swift
     func validateResult(nric: String, sessionToken: String, sessionCompletionHandler: @escaping (JSON?) -> Void) {
            let validateResultURL = URL(string: baseURL + validateResultAPI)!
@@ -598,7 +587,6 @@ Copy the following code into `ViewController`:
            task.resume()
     }
 ```
-:::
 
 Also add the following snippet to reset the SDK:
 
