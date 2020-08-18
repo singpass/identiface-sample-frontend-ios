@@ -11,7 +11,7 @@ In this section, you will be introduced to Identiface QuickStart that allows you
 
 All you have to do is to configure your frontend to include the Identiface SDK, as depicted below in **green**:
 
-![Identiface QuickStart Architecture](../assets/images/face_verify_quickstart.png)
+![Identiface QuickStart Architecture](assets/images/face_verify_quickstart.png)
 
 ::: warning README
 We will assume that you have some experience in using **Xcode** and **Swift**. Please ensure that you also have an [Apple Developer](https://developer.apple.com/) account to test the full features of the Identiface SDK on your iOS Device.
@@ -37,7 +37,7 @@ Firstly, [download the SDK pack](https://bio-face.s3-ap-southeast-1.amazonaws.co
 
 Add the `NDIWrapper.xcframework` and `Dependencies` folders into your project, as illustrated below:
 
-![Adding files to your project in Xcode](../assets/images/ios-add-files.png)
+![Adding files to your project in Xcode](assets/images/ios-add-files.png)
 
 ### Camera usage setup
 
@@ -49,7 +49,7 @@ For the value, we **recommend** you to use:
 
 Here's how to add into your Info.plist:
 
-![Adding files to your project in Xcode](../assets/images/ios-add-infoplist.png)
+![Adding files to your project in Xcode](assets/images/ios-add-infoplist.png)
 
 ## Setting up SDK Dependencies
 
@@ -85,7 +85,7 @@ This code will manually enable module stability for some dependencies due to som
 
 **Your file should look like this:**
 
-![Podfile example](../assets/images/ios-podfile.png)
+![Podfile example](assets/images/ios-podfile.png)
 
 Once done, save the `Podfile`. In `Terminal`, run the following commands: `pod install` or `pod install --verbose`.
 
@@ -103,7 +103,7 @@ For this tutorial, the `ViewController.swift` file is the app's main entry point
 
 This is how our storyboard looks like:
 
-![Storyboard example](../assets/images/ios-storyboard.png)
+![Storyboard example](assets/images/ios-storyboard.png)
 
 ::: tip TIP
 Notice the NRIC/FIN text field. We will use this in the `ViewController.swift`.
@@ -168,7 +168,7 @@ class ViewController: UIViewController {
 
 **and connect your input fields**:
 
-![Storyboard Elements](../assets/images/ios-labels.png)
+![Storyboard Elements](assets/images/ios-labels.png)
 
 
 ### Declare important variables
@@ -666,7 +666,7 @@ https://www.identiface.live/api/face/verify/validate
 
 ## Final notes
 
-![XCode Build](../assets/images/ios-built-app.png)
+![XCode Build](assets/images/ios-built-app.png)
 
 Congratulations! You've successfully created a Proof-of-Concept (PoC) using the Identiface iOS QuickStart!
 
