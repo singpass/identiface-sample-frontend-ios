@@ -13,13 +13,12 @@ All you have to do is to configure your frontend to include the Identiface SDK, 
 
 ![Identiface QuickStart Architecture](assets/images/face_verify_quickstart.png)
 
-::: warning README
-We will assume that you have some experience in using **Xcode** and **Swift**. Please ensure that you also have an [Apple Developer](https://developer.apple.com/) account to test the full features of the Identiface SDK on your iOS Device.
-
-**Check that you have the minimum requirements on your iOS Device:**
-
-* iOS 13.0 and above
-:::
+> README
+> We will assume that you have some experience in using **Xcode** and **Swift**. Please ensure that you also have an [Apple Developer](https://developer.apple.com/) account to test the full features of the Identiface SDK on your iOS Device.
+>
+> **Check that you have the minimum requirements on your iOS Device:**
+>
+> * iOS 13.0 and above
 
 ## Creating a new project in Xcode
 
