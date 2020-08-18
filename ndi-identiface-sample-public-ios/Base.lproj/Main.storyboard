@@ -19,6 +19,9 @@
                                 <rect key="frame" x="43" y="431" width="328" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="go"/>
+                                <connections>
+                                    <action selector="loadFaceWithSender:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="bYl-YK-kh6"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfo-o7-s8W">
                                 <rect key="frame" x="43" y="565" width="328" height="40"/>

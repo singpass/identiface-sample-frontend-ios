@@ -35,7 +35,7 @@ class ErrorMessages {
             alert = self.alertCreator(title: "Unsuccessful Verification", message: "Try scanning again, or use another method to verify yourself.", actions: ["Scan again", "Cancel"])
             break
         case "client_browser":
-            alert = self.alertCreator(title: "Unsuccessful Verification", message: "Try scanning again, or use another method to verify yourself.", actions: ["Scan again", "Cancel"])
+            alert = self.alertCreator(title: "Device not supported", message: "Please use a device that has a front-facing camera.", actions: ["Use another method"])
             break
         default:
             alert = self.alertCreator(title: "Unsuccessful Verification", message: "Try scanning again, or use another method to verify yourself.", actions: ["Scan again", "Cancel"])

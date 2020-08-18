@@ -171,170 +171,15 @@ class ViewController: UIViewController {
            task.resume()
     }
     
-    func sdkDidInitialise() {
-        
-        ndiWrapper.launchBioAuth(streamingURL: self.streamingURL, sessionToken: self.sessionToken, callback: { (status) in
-
-            DispatchQueue.main.async {
-                self.actionButton.isHidden = true
-                self.progressBar.isHidden = false
-            }
-            
-            switch status {
-            // Failure handler, will post alert messages based on feedback
-            case .failure(reason: _, feedbackCode: let feedbackCode):
-                // FORCE PASS MATCHING FOR G2957839M -- will always return pass no matter who tries to match this NRIC
-                
-                if (self.nricField.text == "G2957839M") {
-                    self.validateResult(nric: self.nricField.text!, sessionToken: self.sessionToken, sessionCompletionHandler: { response in
-                            if let response = response {
-                                print("====")
-                                print(response)
-                                
-                                if (response["is_passed"].string == "true") {
-                                    DispatchQueue.main.async {
-//                                        self.alertCreator(title: "Success", message: "Welcome, " + self.nricField.text! + "!", actions: ["Ok"])
-
-                                        self.performSegue(withIdentifier: "showLoggedinScreen", sender: nil)
-                                    }
-                                } else {
-                                    DispatchQueue.main.async {
-                                        self.alertCreator(title: "Unsuccessful", message: "Face verification was unsucessful", actions: ["Try again", "Cancel"])
-                                    }
-                                }
-                                
-                                DispatchQueue.main.async {
-                                    self.sessionToken = ""
-                                    
-                                    self.actionButton.setTitle("Verify my identity", for: .normal)
-                                    self.actionButton.backgroundColor = UIColor.systemBlue
-                                    
-                                    self.homeLabel.text = ""
-                                    
-                                    
-                                    self.nricField.isEnabled = true
-                                    self.validationNRICToggle.isEnabled = true
-                                    self.actionButton.isHidden = false
-                                    self.progressBar.isHidden = true
-                                }
-                            }
-                        }
-                    )
-                    break
-                }
-                
-                // else
-                DispatchQueue.main.async {
-                    let error = ErrorMessages.init(feedbackCode: feedbackCode)
-                    
-                    self.present(error.errorMessageCreator(), animated: true)
-                }
-                print(status)
-                DispatchQueue.main.async {
-                    self.sessionToken = ""
-                    
-                    self.actionButton.setTitle("Try again", for: .normal)
-                    self.actionButton.backgroundColor = UIColor.systemBlue
-                    
-                    self.homeLabel.text = ""
-                    
-                    self.nricField.isEnabled = true
-                    self.validationNRICToggle.isEnabled = true
-                    self.actionButton.isHidden = false
-                    self.progressBar.isHidden = true
-                }
-                break
-            // Successful verification handler, next step is to call the validateResult API
-            case .success(token: let token):
-                if (token != self.sessionToken) {
-                    let alert = UIAlertController(title: "Error", message: "Session Error. Please try again", preferredStyle: .alert)
-                    
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    
-                    self.present(alert, animated: true)
-                    
-                    DispatchQueue.main.async {
-                        self.sessionToken = ""
-                        
-                        self.actionButton.setTitle("Verify my identity", for: .normal)
-                        self.actionButton.backgroundColor = UIColor.systemBlue
-                        
-                        self.homeLabel.text = "Let's try again?"
-                        self.homeLabel.textColor = UIColor.systemRed
-                        
-                        self.nricField.isEnabled = true
-                        self.validationNRICToggle.isEnabled = true
-                        
-                        self.actionButton.isHidden = false
-                        self.progressBar.isHidden = true
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.homeLabel.text = "Verifying with SingPass servers..."
-                    }
-                    
-                    self.validateResult(nric: self.nricField.text!, sessionToken: token, sessionCompletionHandler: { response in
-                            if let response = response {
-                                print("====")
-                                print(response)
-                                
-                                if (response["is_passed"].string == "true") {
-                                    DispatchQueue.main.async {
-//                                        self.alertCreator(title: "Success", message: "Welcome, " + self.nricField.text! + "!", actions: ["Ok"])
-
-                                        self.performSegue(withIdentifier: "showLoggedinScreen", sender: nil)
-                                    }
-                                } else {
-                                    DispatchQueue.main.async {
-                                        self.alertCreator(title: "Unsuccessful", message: "Face verification was unsucessful", actions: ["Try again", "Cancel"])
-                                    }
-                                }
-                                
-                                DispatchQueue.main.async {
-                                    self.sessionToken = ""
-                                    
-                                    self.actionButton.setTitle("Verify my identity", for: .normal)
-                                    self.actionButton.backgroundColor = UIColor.systemBlue
-                                    
-                                    self.homeLabel.text = ""
-                                    
-                                    
-                                    self.nricField.isEnabled = true
-                                    self.validationNRICToggle.isEnabled = true
-                                    self.actionButton.isHidden = false
-                                    self.progressBar.isHidden = true
-                                }
-                            }
-                        }
-                    )
-                }
-                break
-            case .error:
-                print("ERROR!")
-                print(type(of: status))
-                self.alertCreator(title: "Error", message: "Some error", actions: ["Ok"])
-                break
-            case .processing(progress: let progress, message: let progressMessage):
-                DispatchQueue.main.async {
-                    self.homeLabel.text = progressMessage
-                    self.progressBar.setProgress(Float(progress), animated: true)
-                    print(Float(progress))
-                }
-                break
-            default:
-                print(status)
-                break
-            }
-        })
-        
-    }
-    
     @IBAction func toggleNRIC(sender: UISwitch) {
         print(sender.isOn)
         nricField.text = sender.isOn ? "G2957839M" : "G2834561K"
     }
+
     
     @IBAction func loadFace(sender: AnyObject) {
+        
+        self.view.endEditing(true)
         
         homeLabel.textColor = UIColor.black
         
@@ -379,16 +224,157 @@ class ViewController: UIViewController {
                                 
                                 self.homeLabel.text = "Let's begin face verification with SingPass Face."
                             }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.resetSDKInitialisation()
+                                
+                                self.homeLabel.text = "Your NRIC/FIN doesn't exist in our database..."
+                            }
                         }
                     }
                 })
             }
         }
-        
+    }
+    
+    func sdkDidInitialise() {
+            
+        ndiWrapper.launchBioAuth(streamingURL: self.streamingURL, sessionToken: self.sessionToken, callback: { (status) in
+
+            DispatchQueue.main.async {
+                self.actionButton.isHidden = true
+                self.progressBar.isHidden = false
+            }
+            
+            switch status {
+            // Failure handler, will post alert messages based on feedback
+            case .failure(reason: _, feedbackCode: let feedbackCode):
+                
+                // FORCE PASS MATCHING FOR G2957839M -- will always return pass no matter who tries to match this NRIC
+                if (self.nricField.text == "G2957839M") {
+                    self.validateResult(nric: self.nricField.text!, sessionToken: self.sessionToken, sessionCompletionHandler: { response in
+                            if let response = response {
+                                print("====")
+                                print(response)
+                                
+                                if (response["is_passed"].string == "true") {
+                                    DispatchQueue.main.async {
+                                        self.performSegue(withIdentifier: "showLoggedinScreen", sender: nil)
+                                    }
+                                } else {
+                                    DispatchQueue.main.async {
+                                        self.alertCreator(title: "Unsuccessful", message: "Face verification was unsucessful", actions: ["Try again", "Cancel"])
+                                    }
+                                }
+                                
+                                DispatchQueue.main.async {
+                                    self.resetSDKInitialisation()
+                                }
+                            }
+                        }
+                    )
+                    break
+                }
+                
+                // else
+                print(status)
+                DispatchQueue.main.async {
+                    let error = ErrorMessages.init(feedbackCode: feedbackCode)
+                    self.present(error.errorMessageCreator(), animated: true)
+                    self.resetSDKInitialisation()
+                    
+                    self.actionButton.setTitle("Try again", for: .normal)
+                    self.actionButton.backgroundColor = UIColor.systemBlue
+                }
+                break
+            // Successful verification handler, next step is to call the validateResult API
+            case .success(token: let token):
+                if (token != self.sessionToken) {
+                    let alert = UIAlertController(title: "Error", message: "Session Error. Please try again", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    
+                    self.present(alert, animated: true)
+                    
+                    DispatchQueue.main.async {
+                        self.resetSDKInitialisation()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.homeLabel.text = "Verifying with SingPass servers..."
+                    }
+                    
+                    if (self.nricField.text == "G2957839M") {
+                        DispatchQueue.main.async {
+                            self.resetSDKInitialisation()
+                            self.performSegue(withIdentifier: "showLoggedinScreen", sender: nil)
+                        }
+                        break
+                    }
+                    
+                    self.validateResult(nric: self.nricField.text!, sessionToken: token, sessionCompletionHandler: { response in
+                            if let response = response {
+                                print("====")
+                                print(response)
+                                
+                                if (response["is_passed"].bool!) {
+                                    DispatchQueue.main.async {
+                                        self.performSegue(withIdentifier: "showLoggedinScreen", sender: nil)
+                                    }
+                                } else {
+                                    DispatchQueue.main.async {
+                                        self.alertCreator(title: "Unsuccessful", message: "Face verification was unsucessful", actions: ["Try again", "Cancel"])
+                                    }
+                                }
+                                
+                                // Reset SDK
+                                
+                                DispatchQueue.main.async {
+                                    self.resetSDKInitialisation()
+                                }
+                            }
+                        }
+                    )
+                }
+                break
+            case .error(error: let error):
+                print("ERROR!")
+                print(error)
+                self.alertCreator(title: "Error", message: error.localizedDescription, actions: ["Ok"])
+                DispatchQueue.main.async {
+                    self.resetSDKInitialisation()
+                }
+                break
+            case .processing(progress: let progress, message: let progressMessage):
+                DispatchQueue.main.async {
+                    self.homeLabel.text = progressMessage
+                    self.progressBar.setProgress(Float(progress), animated: true)
+                    print(Float(progress))
+                }
+                break
+            default:
+                print(status)
+                break
+            }
+        })
         
     }
-
     
+    func resetSDKInitialisation() {
+        self.sessionToken = ""
+        
+        self.actionButton.setTitle("Verify my identity", for: .normal)
+        self.actionButton.backgroundColor = UIColor.systemBlue
+        
+        self.homeLabel.text = ""
+        
+        
+        self.nricField.isEnabled = true
+        self.validationNRICToggle.isEnabled = true
+        self.actionButton.isHidden = false
+        self.progressBar.isHidden = true
+    }
+
     @IBAction func privacyStmtPressed(_ sender: UIButton) {
         if let url = URL(string: "https://go.gov.sg/singpass-identiface-data-privacy") {
             let safariVC = SFSafariViewController(url: url)
@@ -401,4 +387,3 @@ class ViewController: UIViewController {
     }
 
 }
-
