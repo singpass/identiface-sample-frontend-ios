@@ -5,6 +5,8 @@ import requests
 import json
 import jwcrypto.jwk as jwk
 import jwcrypto.jws as jws
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 import base64
 
@@ -19,6 +21,17 @@ import base64
 app = Flask(__name__)
 CORS(app)
 
+# Rate limiter to prevent abuse
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["3 per minute", "60 per hour", "300 per day"])
+
+@app.errorhandler(404)
+def errorHandler(e):
+    return jsonify({"type": "error", "message": "Address not found."}), 404
+
+@app.errorhandler(429)
+def ratelimit_handler(e):
+    return jsonify({"type": "error", "status": 429, "message": "Rate limit exceeded %s" % e.description}), 429
+
 # For production environments
 SECRET = os.environ["SECRET"]
 CLIENT_SECRET = os.environ["CLIENT_SECRET"]
@@ -31,6 +44,11 @@ BASE_URL = "https://stg-bio-api.singpass.gov.sg/api/v2/face"
 
 # USER SESSIONS will be { "S9911223A": [oauth_token, session_token] }
 USER_SESSIONS = {}
+
+@app.route("/face/test", methods=["GET"])
+@limiter.limit("1 per minute")
+def one():
+    return jsonify({"message": "ONE PER MINUTE ONLY"})
 
 def getAuthToken(pw=""):
     '''
