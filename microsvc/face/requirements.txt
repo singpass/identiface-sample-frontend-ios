@@ -1,5 +1,0 @@
-Flask==1.1.1
-Flask-Cors==3.0.8
-Flask-Limiter==1.4
-requests==2.23.0
-jwcrypto==0.7
