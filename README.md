@@ -175,7 +175,7 @@ In your `ViewController`, declare the following URL as variables for our QuickSt
 
 ```swift
     // Identiface QuickStart API
-    let baseURL = "https://www.identiface.live/api"
+    let baseURL = "https://developer.bio-api.singpass.gov.sg/api"
     let getSessionTokenAPI = "/face/verify/token"
     let validateResultAPI = "/face/verify/validate"
 ```
@@ -375,7 +375,7 @@ Below are the parameters for the request for your information:
 **URL**
 
 ```
-https://www.identiface.live/api/face/verify/token
+https://developer.bio-api.singpass.gov.sg/api/face/verify/token
 ```
 
 <br>
@@ -614,7 +614,7 @@ For your information, below are the parameters for the request to the `validateR
 **URL**
 
 ```
-https://www.identiface.live/api/face/verify/validate
+https://developer.bio-api.singpass.gov.sg/api/face/verify/validate
 ```
 
 <br>
