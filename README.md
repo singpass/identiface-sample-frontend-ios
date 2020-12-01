@@ -174,8 +174,8 @@ class ViewController: UIViewController {
 In your `ViewController`, declare the following URL as variables for our QuickStart backend API:
 
 ```swift
-    // Identiface QuickStart API
-    let baseURL = "https://developer.bio-api.singpass.gov.sg/api"
+    // Identiface QuickStart API, pls download the backend repo to run it
+    let baseURL = "http://localhost:9000"
     let getSessionTokenAPI = "/face/verify/token"
     let validateResultAPI = "/face/verify/validate"
 ```
@@ -375,7 +375,7 @@ Below are the parameters for the request for your information:
 **URL**
 
 ```
-https://developer.bio-api.singpass.gov.sg/api/face/verify/token
+\/face/verify/token
 ```
 
 <br>
@@ -614,7 +614,7 @@ For your information, below are the parameters for the request to the `validateR
 **URL**
 
 ```
-https://developer.bio-api.singpass.gov.sg/api/face/verify/validate
+http://localhost:9000/face/verify/validate
 ```
 
 <br>
