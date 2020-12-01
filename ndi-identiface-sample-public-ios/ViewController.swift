@@ -28,8 +28,8 @@ class ViewController: UIViewController {
     let isDangerColor = UIColor(red:255/255.0, green:56/255.0, blue:96/255.0, alpha:1)
     
     // Identiface QuickStart API
-    let baseURL = "https://developer.bio-api.singpass.gov.sg/api"
-//    let baseURL = "http://localhost:9000"
+    // Use the backend repo sample for this
+    let baseURL = "http://localhost:9000"
     let getSessionTokenAPI = "/face/verify/token"
     let validateResultAPI = "/face/verify/validate"
     
