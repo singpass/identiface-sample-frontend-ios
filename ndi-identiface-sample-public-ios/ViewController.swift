@@ -8,8 +8,8 @@
 
 import UIKit
 import NDIWrapper
-import SwiftyJSON
 import SafariServices
+import SwiftyJSON
 
 class ViewController: UIViewController {
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     // Identiface QuickStart API
     // Use the backend repo sample for this
-    let baseURL = "http://localhost:9000"
+    let baseURL = "https://developer.bio-api.singpass.gov.sg/api"
     let getSessionTokenAPI = "/face/verify/token"
     let validateResultAPI = "/face/verify/validate"
     
@@ -337,14 +337,14 @@ class ViewController: UIViewController {
                     )
                 }
                 break
-            case .error(error: let error):
-                print("ERROR!")
-                print(error)
-                self.alertCreator(title: "Error", message: error.localizedDescription, actions: ["Ok"])
-                DispatchQueue.main.async {
-                    self.resetSDKInitialisation()
-                }
-                break
+//            case .error(error: let error):      // pending TECQ
+//                print("ERROR!")
+//                print(error)
+//                self.alertCreator(title: "Error", message: error.localizedDescription, actions: ["Ok"])
+//                DispatchQueue.main.async {
+//                    self.resetSDKInitialisation()
+//                }
+//                break
             case .processing(progress: let progress, message: let progressMessage):
                 DispatchQueue.main.async {
                     self.homeLabel.text = progressMessage
