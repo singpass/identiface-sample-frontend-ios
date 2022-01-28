@@ -7,14 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BF6BE4127A191A900CC493E /* iProov.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BE3127A18D4F00CC493E /* iProov.xcframework */; };
-		0BF6BE4227A191A900CC493E /* iProov.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BE3127A18D4F00CC493E /* iProov.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0BF6BE4327A191A900CC493E /* NDIWrapper.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BE1227A17BED00CC493E /* NDIWrapper.xcframework */; };
-		0BF6BE4427A191A900CC493E /* NDIWrapper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BE1227A17BED00CC493E /* NDIWrapper.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0BF6BE4527A191A900CC493E /* SocketIO.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BE3427A18D5200CC493E /* SocketIO.xcframework */; };
-		0BF6BE4627A191A900CC493E /* SocketIO.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BE3427A18D5200CC493E /* SocketIO.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0BF6BE4727A191A900CC493E /* Starscream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BE3727A18D5500CC493E /* Starscream.xcframework */; };
-		0BF6BE4827A191A900CC493E /* Starscream.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BE3727A18D5500CC493E /* Starscream.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0B7B360D45CA93F8BDD6F2B1 /* Pods_ndi_identiface_sample_public_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54DA07FB0CE87D054E311DE /* Pods_ndi_identiface_sample_public_ios.framework */; };
 		7153764624DA96A70046F8A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153764524DA96A70046F8A1 /* AppDelegate.swift */; };
 		7153764824DA96A70046F8A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153764724DA96A70046F8A1 /* SceneDelegate.swift */; };
 		7153764A24DA96A70046F8A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153764924DA96A70046F8A1 /* ViewController.swift */; };
@@ -23,20 +16,18 @@
 		7156BB4524DC06F400564ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7153764E24DA96A80046F8A1 /* Assets.xcassets */; };
 		71B3166624E26E420088D448 /* LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B3166524E26E420088D448 /* LoggedIn.swift */; };
 		71BF14C724DD4B6400147474 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BF14C624DD4B6400147474 /* ErrorMessages.swift */; };
-		97221E6B31AD76AF560FD60A /* libPods-ndi-identiface-sample-public-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9C659D6FF1C69F72F5FB9F /* libPods-ndi-identiface-sample-public-ios.a */; };
+		F5D1EFC327A39D43004523AD /* NDIWrapper.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D1EFC127A39D34004523AD /* NDIWrapper.xcframework */; };
+		F5D1EFC427A39D43004523AD /* NDIWrapper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F5D1EFC127A39D34004523AD /* NDIWrapper.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0BF6BE4027A18E7500CC493E /* Embed Frameworks */ = {
+		F5D1EFBD27A39B11004523AD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0BF6BE4227A191A900CC493E /* iProov.xcframework in Embed Frameworks */,
-				0BF6BE4427A191A900CC493E /* NDIWrapper.xcframework in Embed Frameworks */,
-				0BF6BE4827A191A900CC493E /* Starscream.xcframework in Embed Frameworks */,
-				0BF6BE4627A191A900CC493E /* SocketIO.xcframework in Embed Frameworks */,
+				F5D1EFC427A39D43004523AD /* NDIWrapper.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,13 +35,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0BF6BE1227A17BED00CC493E /* NDIWrapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NDIWrapper.xcframework; path = FrameworkAndDependencies/XCFramework/NDIWrapper.xcframework; sourceTree = "<group>"; };
-		0BF6BE3127A18D4F00CC493E /* iProov.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = iProov.xcframework; path = FrameworkAndDependencies/XCFramework/Dependencies/iProov.xcframework; sourceTree = "<group>"; };
-		0BF6BE3427A18D5200CC493E /* SocketIO.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SocketIO.xcframework; path = FrameworkAndDependencies/XCFramework/Dependencies/SocketIO.xcframework; sourceTree = "<group>"; };
-		0BF6BE3727A18D5500CC493E /* Starscream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Starscream.xcframework; path = FrameworkAndDependencies/XCFramework/Dependencies/Starscream.xcframework; sourceTree = "<group>"; };
-		3C9C659D6FF1C69F72F5FB9F /* libPods-ndi-identiface-sample-public-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ndi-identiface-sample-public-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		512A7825DEA6560BADA20BC9 /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndi-identiface-sample-public-ios.release.xcconfig"; path = "Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios.release.xcconfig"; sourceTree = "<group>"; };
-		65C9E97D15CF32ADF4D2FD77 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndi-identiface-sample-public-ios.debug.xcconfig"; path = "Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		12FB17D08734EE7FA0651DF3 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndi-identiface-sample-public-ios.debug.xcconfig"; path = "Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		1F4F75A71763F804F29497BF /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndi-identiface-sample-public-ios.release.xcconfig"; path = "Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios.release.xcconfig"; sourceTree = "<group>"; };
 		7153764224DA96A70046F8A1 /* ndi-identiface-sample-public-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ndi-identiface-sample-public-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7153764524DA96A70046F8A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7153764724DA96A70046F8A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +47,8 @@
 		7153765324DA96A80046F8A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71B3166524E26E420088D448 /* LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedIn.swift; sourceTree = "<group>"; };
 		71BF14C624DD4B6400147474 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
+		F54DA07FB0CE87D054E311DE /* Pods_ndi_identiface_sample_public_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ndi_identiface_sample_public_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D1EFC127A39D34004523AD /* NDIWrapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NDIWrapper.xcframework; path = XCFramework/NDIWrapper.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,33 +56,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BF6BE4127A191A900CC493E /* iProov.xcframework in Frameworks */,
-				0BF6BE4327A191A900CC493E /* NDIWrapper.xcframework in Frameworks */,
-				0BF6BE4727A191A900CC493E /* Starscream.xcframework in Frameworks */,
-				0BF6BE4527A191A900CC493E /* SocketIO.xcframework in Frameworks */,
-				97221E6B31AD76AF560FD60A /* libPods-ndi-identiface-sample-public-ios.a in Frameworks */,
+				F5D1EFC327A39D43004523AD /* NDIWrapper.xcframework in Frameworks */,
+				0B7B360D45CA93F8BDD6F2B1 /* Pods_ndi_identiface_sample_public_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		550BF131CAFDE0F8C954D9C6 /* Pods */ = {
+		3836A728BAFC82F9FA22DA60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65C9E97D15CF32ADF4D2FD77 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */,
-				512A7825DEA6560BADA20BC9 /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */,
+				F54DA07FB0CE87D054E311DE /* Pods_ndi_identiface_sample_public_ios.framework */,
 			);
-			path = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7153763924DA96A70046F8A1 = {
 			isa = PBXGroup;
 			children = (
+				F5D1EFC127A39D34004523AD /* NDIWrapper.xcframework */,
 				7153764424DA96A70046F8A1 /* ndi-identiface-sample-public-ios */,
 				7153764324DA96A70046F8A1 /* Products */,
-				7153765924DAA5630046F8A1 /* Frameworks */,
-				550BF131CAFDE0F8C954D9C6 /* Pods */,
+				AA3D8B4A099D1A98DD213DBB /* Pods */,
+				3836A728BAFC82F9FA22DA60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,16 +107,13 @@
 			path = "ndi-identiface-sample-public-ios";
 			sourceTree = "<group>";
 		};
-		7153765924DAA5630046F8A1 /* Frameworks */ = {
+		AA3D8B4A099D1A98DD213DBB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0BF6BE3127A18D4F00CC493E /* iProov.xcframework */,
-				0BF6BE3427A18D5200CC493E /* SocketIO.xcframework */,
-				0BF6BE3727A18D5500CC493E /* Starscream.xcframework */,
-				0BF6BE1227A17BED00CC493E /* NDIWrapper.xcframework */,
-				3C9C659D6FF1C69F72F5FB9F /* libPods-ndi-identiface-sample-public-ios.a */,
+				12FB17D08734EE7FA0651DF3 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */,
+				1F4F75A71763F804F29497BF /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,11 +123,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7153765624DA96A80046F8A1 /* Build configuration list for PBXNativeTarget "ndi-identiface-sample-public-ios" */;
 			buildPhases = (
-				1832A29603EBFA7FC453F779 /* [CP] Check Pods Manifest.lock */,
+				76646654BF65736FAE5BE2A1 /* [CP] Check Pods Manifest.lock */,
 				7153763E24DA96A70046F8A1 /* Sources */,
 				7153763F24DA96A70046F8A1 /* Frameworks */,
 				7153764024DA96A70046F8A1 /* Resources */,
-				0BF6BE4027A18E7500CC493E /* Embed Frameworks */,
+				F5D1EFBD27A39B11004523AD /* Embed Frameworks */,
+				01E4426CFB529B237E2C8CD0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,7 +186,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1832A29603EBFA7FC453F779 /* [CP] Check Pods Manifest.lock */ = {
+		01E4426CFB529B237E2C8CD0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ndi-identiface-sample-public-ios/Pods-ndi-identiface-sample-public-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76646654BF65736FAE5BE2A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,7 +314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -371,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -384,7 +384,7 @@
 		};
 		7153765724DA96A80046F8A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65C9E97D15CF32ADF4D2FD77 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */;
+			baseConfigurationReference = 12FB17D08734EE7FA0651DF3 /* Pods-ndi-identiface-sample-public-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -410,7 +410,7 @@
 		};
 		7153765824DA96A80046F8A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 512A7825DEA6560BADA20BC9 /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */;
+			baseConfigurationReference = 1F4F75A71763F804F29497BF /* Pods-ndi-identiface-sample-public-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";

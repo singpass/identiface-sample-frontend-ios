@@ -3,7 +3,7 @@
 
 target 'ndi-identiface-sample-public-ios' do
     # Comment the next line if you don't want to use dynamic frameworks
-    # use_frameworks!
+    use_frameworks!
 
     # Pods for ndi-identiface-sample-public-ios
     pod 'iProov', '~> 9.0.1'
