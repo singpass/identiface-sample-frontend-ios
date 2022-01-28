@@ -5,3 +5,4 @@ ndi-identiface-sample-public-ios.xcworkspace/xcshareddata/IDEWorkspaceChecks.pli
 Podfile.lock
 Pods/*
 FrameworkAndDependencies/*
+XCFramework/*
